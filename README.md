@@ -1,4 +1,4 @@
-# My App
+# Frontend Template
 
 React와 TypeScript를 기반으로 한 웹 애플리케이션 예시입니다.
 
@@ -18,7 +18,7 @@ React와 TypeScript를 기반으로 한 웹 애플리케이션 예시입니다.
 ## 프로젝트 구조
 
 ```
-my-app/
+frontend-template/
 ├── public/                     # 정적 파일
 │   ├── favicon.ico
 │   ├── logo192.png
