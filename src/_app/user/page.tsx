@@ -1,4 +1,4 @@
-import { UserPage } from '@pages/user/user.page';
+import { UserPage } from '@/_pages/user/user.page';
 import { createFileRoute } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/user/')({
