@@ -1,0 +1,9 @@
+**/node_modules
+**/.tanstack
+**/.vscode
+**/package.json
+**/pnpm-lock.yaml
+**/.eslintrc.js
+**/tsconfig.json
+**/readme.md
+**/dist
