@@ -17,6 +17,7 @@ export default defineConfig([
     languageOptions: { globals: globals.browser },
     rules: {
       'no-console': 'error',
+      '@typescript-eslint/no-explicit-any': 'error',
     },
   },
   // typescript
