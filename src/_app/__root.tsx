@@ -32,21 +32,23 @@ function RootComponent() {
   return (
     <RootDocument>
       <Outlet />
-      <TanstackDevtools
-        config={{
-          position: 'bottom-left',
-        }}
-        plugins={[
-          {
-            name: 'Tanstack Router',
-            render: <TanStackRouterDevtoolsPanel />,
-          },
-          {
-            name: 'React Query',
-            render: <ReactQueryDevtoolsPanel />,
-          },
-        ]}
-      />
+      {import.meta.env.DEV && (
+        <TanstackDevtools
+          config={{
+            position: 'bottom-left',
+          }}
+          plugins={[
+            {
+              name: 'Tanstack Router',
+              render: <TanStackRouterDevtoolsPanel />,
+            },
+            {
+              name: 'React Query',
+              render: <ReactQueryDevtoolsPanel />,
+            },
+          ]}
+        />
+      )}
     </RootDocument>
   );
 }
