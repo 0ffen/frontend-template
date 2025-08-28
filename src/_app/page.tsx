@@ -1,3 +1,5 @@
+import { fetcher } from '@/shared/utils';
+import { useQuery } from '@tanstack/react-query';
 import { createFileRoute } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/')({
@@ -5,5 +7,10 @@ export const Route = createFileRoute('/')({
 });
 
 function App() {
-  return <div className='text-blue-500'>Hello World</div>;
+  const { data, isLoading } = useQuery({
+    queryKey: ['test'],
+    queryFn: () => fetcher({ url: 'https://jsonplaceholder.typicode.com/posts/1' }),
+  });
+
+  return <pre>{isLoading ? 'Loading...' : JSON.stringify(data, null, 2)}</pre>;
 }
