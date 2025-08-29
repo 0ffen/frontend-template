@@ -9,131 +9,153 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './_app/__root'
-import { Route as UserLayoutRouteImport } from './_app/user/layout'
-import { Route as PageRouteImport } from './_app/page'
-import { Route as UserPageRouteImport } from './_app/user/page'
-import { Route as UserIdRouteImport } from './_app/user/$id'
-import { Route as UserIdEditRouteImport } from './_app/user/$id_.edit'
+import { Route as Char123LangChar125PageRouteImport } from './_app/{-$lang}/page'
+import { Route as Char123LangChar125UserLayoutRouteImport } from './_app/{-$lang}/user/layout'
+import { Route as Char123LangChar125UserPageRouteImport } from './_app/{-$lang}/user/page'
+import { Route as Char123LangChar125UserIdRouteImport } from './_app/{-$lang}/user/$id'
+import { Route as Char123LangChar125UserIdEditRouteImport } from './_app/{-$lang}/user/$id_.edit'
 
-const UserLayoutRoute = UserLayoutRouteImport.update({
-  id: '/user',
-  path: '/user',
+const Char123LangChar125PageRoute = Char123LangChar125PageRouteImport.update({
+  id: '/{-$lang}/',
+  path: '/{-$lang}/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PageRoute = PageRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const UserPageRoute = UserPageRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => UserLayoutRoute,
-} as any)
-const UserIdRoute = UserIdRouteImport.update({
-  id: '/$id',
-  path: '/$id',
-  getParentRoute: () => UserLayoutRoute,
-} as any)
-const UserIdEditRoute = UserIdEditRouteImport.update({
-  id: '/$id_/edit',
-  path: '/$id/edit',
-  getParentRoute: () => UserLayoutRoute,
-} as any)
+const Char123LangChar125UserLayoutRoute =
+  Char123LangChar125UserLayoutRouteImport.update({
+    id: '/{-$lang}/user',
+    path: '/{-$lang}/user',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LangChar125UserPageRoute =
+  Char123LangChar125UserPageRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => Char123LangChar125UserLayoutRoute,
+  } as any)
+const Char123LangChar125UserIdRoute =
+  Char123LangChar125UserIdRouteImport.update({
+    id: '/$id',
+    path: '/$id',
+    getParentRoute: () => Char123LangChar125UserLayoutRoute,
+  } as any)
+const Char123LangChar125UserIdEditRoute =
+  Char123LangChar125UserIdEditRouteImport.update({
+    id: '/$id_/edit',
+    path: '/$id/edit',
+    getParentRoute: () => Char123LangChar125UserLayoutRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof PageRoute
-  '/user': typeof UserLayoutRouteWithChildren
-  '/user/$id': typeof UserIdRoute
-  '/user/': typeof UserPageRoute
-  '/user/$id/edit': typeof UserIdEditRoute
+  '/{-$lang}/user': typeof Char123LangChar125UserLayoutRouteWithChildren
+  '/{-$lang}': typeof Char123LangChar125PageRoute
+  '/{-$lang}/user/$id': typeof Char123LangChar125UserIdRoute
+  '/{-$lang}/user/': typeof Char123LangChar125UserPageRoute
+  '/{-$lang}/user/$id/edit': typeof Char123LangChar125UserIdEditRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof PageRoute
-  '/user/$id': typeof UserIdRoute
-  '/user': typeof UserPageRoute
-  '/user/$id/edit': typeof UserIdEditRoute
+  '/{-$lang}': typeof Char123LangChar125PageRoute
+  '/{-$lang}/user/$id': typeof Char123LangChar125UserIdRoute
+  '/{-$lang}/user': typeof Char123LangChar125UserPageRoute
+  '/{-$lang}/user/$id/edit': typeof Char123LangChar125UserIdEditRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof PageRoute
-  '/user': typeof UserLayoutRouteWithChildren
-  '/user/$id': typeof UserIdRoute
-  '/user/': typeof UserPageRoute
-  '/user/$id_/edit': typeof UserIdEditRoute
+  '/{-$lang}/user': typeof Char123LangChar125UserLayoutRouteWithChildren
+  '/{-$lang}/': typeof Char123LangChar125PageRoute
+  '/{-$lang}/user/$id': typeof Char123LangChar125UserIdRoute
+  '/{-$lang}/user/': typeof Char123LangChar125UserPageRoute
+  '/{-$lang}/user/$id_/edit': typeof Char123LangChar125UserIdEditRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/user' | '/user/$id' | '/user/' | '/user/$id/edit'
+  fullPaths:
+    | '/{-$lang}/user'
+    | '/{-$lang}'
+    | '/{-$lang}/user/$id'
+    | '/{-$lang}/user/'
+    | '/{-$lang}/user/$id/edit'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/user/$id' | '/user' | '/user/$id/edit'
-  id: '__root__' | '/' | '/user' | '/user/$id' | '/user/' | '/user/$id_/edit'
+  to:
+    | '/{-$lang}'
+    | '/{-$lang}/user/$id'
+    | '/{-$lang}/user'
+    | '/{-$lang}/user/$id/edit'
+  id:
+    | '__root__'
+    | '/{-$lang}/user'
+    | '/{-$lang}/'
+    | '/{-$lang}/user/$id'
+    | '/{-$lang}/user/'
+    | '/{-$lang}/user/$id_/edit'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  PageRoute: typeof PageRoute
-  UserLayoutRoute: typeof UserLayoutRouteWithChildren
+  Char123LangChar125UserLayoutRoute: typeof Char123LangChar125UserLayoutRouteWithChildren
+  Char123LangChar125PageRoute: typeof Char123LangChar125PageRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/user': {
-      id: '/user'
-      path: '/user'
-      fullPath: '/user'
-      preLoaderRoute: typeof UserLayoutRouteImport
+    '/{-$lang}/': {
+      id: '/{-$lang}/'
+      path: '/{-$lang}'
+      fullPath: '/{-$lang}'
+      preLoaderRoute: typeof Char123LangChar125PageRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof PageRouteImport
+    '/{-$lang}/user': {
+      id: '/{-$lang}/user'
+      path: '/{-$lang}/user'
+      fullPath: '/{-$lang}/user'
+      preLoaderRoute: typeof Char123LangChar125UserLayoutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/user/': {
-      id: '/user/'
+    '/{-$lang}/user/': {
+      id: '/{-$lang}/user/'
       path: '/'
-      fullPath: '/user/'
-      preLoaderRoute: typeof UserPageRouteImport
-      parentRoute: typeof UserLayoutRoute
+      fullPath: '/{-$lang}/user/'
+      preLoaderRoute: typeof Char123LangChar125UserPageRouteImport
+      parentRoute: typeof Char123LangChar125UserLayoutRoute
     }
-    '/user/$id': {
-      id: '/user/$id'
+    '/{-$lang}/user/$id': {
+      id: '/{-$lang}/user/$id'
       path: '/$id'
-      fullPath: '/user/$id'
-      preLoaderRoute: typeof UserIdRouteImport
-      parentRoute: typeof UserLayoutRoute
+      fullPath: '/{-$lang}/user/$id'
+      preLoaderRoute: typeof Char123LangChar125UserIdRouteImport
+      parentRoute: typeof Char123LangChar125UserLayoutRoute
     }
-    '/user/$id_/edit': {
-      id: '/user/$id_/edit'
+    '/{-$lang}/user/$id_/edit': {
+      id: '/{-$lang}/user/$id_/edit'
       path: '/$id/edit'
-      fullPath: '/user/$id/edit'
-      preLoaderRoute: typeof UserIdEditRouteImport
-      parentRoute: typeof UserLayoutRoute
+      fullPath: '/{-$lang}/user/$id/edit'
+      preLoaderRoute: typeof Char123LangChar125UserIdEditRouteImport
+      parentRoute: typeof Char123LangChar125UserLayoutRoute
     }
   }
 }
 
-interface UserLayoutRouteChildren {
-  UserIdRoute: typeof UserIdRoute
-  UserPageRoute: typeof UserPageRoute
-  UserIdEditRoute: typeof UserIdEditRoute
+interface Char123LangChar125UserLayoutRouteChildren {
+  Char123LangChar125UserIdRoute: typeof Char123LangChar125UserIdRoute
+  Char123LangChar125UserPageRoute: typeof Char123LangChar125UserPageRoute
+  Char123LangChar125UserIdEditRoute: typeof Char123LangChar125UserIdEditRoute
 }
 
-const UserLayoutRouteChildren: UserLayoutRouteChildren = {
-  UserIdRoute: UserIdRoute,
-  UserPageRoute: UserPageRoute,
-  UserIdEditRoute: UserIdEditRoute,
-}
+const Char123LangChar125UserLayoutRouteChildren: Char123LangChar125UserLayoutRouteChildren =
+  {
+    Char123LangChar125UserIdRoute: Char123LangChar125UserIdRoute,
+    Char123LangChar125UserPageRoute: Char123LangChar125UserPageRoute,
+    Char123LangChar125UserIdEditRoute: Char123LangChar125UserIdEditRoute,
+  }
 
-const UserLayoutRouteWithChildren = UserLayoutRoute._addFileChildren(
-  UserLayoutRouteChildren,
-)
+const Char123LangChar125UserLayoutRouteWithChildren =
+  Char123LangChar125UserLayoutRoute._addFileChildren(
+    Char123LangChar125UserLayoutRouteChildren,
+  )
 
 const rootRouteChildren: RootRouteChildren = {
-  PageRoute: PageRoute,
-  UserLayoutRoute: UserLayoutRouteWithChildren,
+  Char123LangChar125UserLayoutRoute:
+    Char123LangChar125UserLayoutRouteWithChildren,
+  Char123LangChar125PageRoute: Char123LangChar125PageRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
